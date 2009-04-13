@@ -1,0 +1,12 @@
+Changes
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+dist.ini
+lib/MooseX/MultiMethods.pm
+lib/MooseX/MultiMethods/Meta/Method.pm
+t/basic.t
+t/game.t
+t/lib/Foo.pm
