@@ -8,5 +8,6 @@ dist.ini
 lib/MooseX/MultiMethods.pm
 lib/MooseX/MultiMethods/Meta/Method.pm
 t/basic.t
+t/fail.t
 t/game.t
 t/lib/Foo.pm

@@ -2,7 +2,7 @@
 abstract: Multi Method Dispatch based on Moose type constraints
 author: 
   - Florian Ragwitz <rafl@debian.org>
-generated_by: Dist::Zilla::Plugin::MetaYaml version 1.004
+generated_by: Dist::Zilla::Plugin::MetaYaml version 1.006
 license: perl
 name: MooseX-MultiMethods
 requires: 
@@ -11,7 +11,8 @@ requires:
   Moose: 0
   MooseX::Method::Signatures: 0.15
   MooseX::Types::Moose: 0
+  MooseX::Types::VariantTable: 0.02
   Sub::Install: 0
   aliased: 0
   namespace::autoclean: 0
-version: 0.01
+version: 0.02
