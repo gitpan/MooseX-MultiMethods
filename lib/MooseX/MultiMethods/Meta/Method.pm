@@ -1,5 +1,5 @@
 package MooseX::MultiMethods::Meta::Method;
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 use Moose;
@@ -38,6 +38,11 @@ method initialize_body {
             goto $method;
         }
 
+        if (my $super = $self->associated_metaclass->find_next_method_by_name($name)) {
+            my $method = $super->body;
+            goto $method;
+        }
+
         confess "no variant of method '${name}' found for ", dump($args);
     };
 }
@@ -51,7 +56,7 @@ MooseX::MultiMethods::Meta::Method
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 AUTHOR
 
