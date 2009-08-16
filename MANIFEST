@@ -12,3 +12,7 @@ t/fail.t
 t/game-split.t
 t/game.t
 t/lib/Foo.pm
+t/lib/MXD.pm
+t/mxd.t
+t/release-pod-coverage.t
+t/release-pod-syntax.t

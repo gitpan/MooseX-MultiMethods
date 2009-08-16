@@ -1,5 +1,5 @@
 package MooseX::MultiMethods;
-our $VERSION = '0.03';
+our $VERSION = '0.04';
 
 # ABSTRACT: Multi Method Dispatch based on Moose type constraints
 
@@ -64,7 +64,8 @@ method setup_for (ClassName $class: ClassName $setup_class, HashRef $args = {}) 
         as   => 'multi',
     });
 
-    MooseX::Method::Signatures->setup_for($setup_class);
+    MooseX::Method::Signatures->setup_for($setup_class)
+        unless $setup_class->can('method');
 }
 
 method parse {
@@ -112,13 +113,16 @@ method parse {
 1;
 
 __END__
+
+=pod
+
 =head1 NAME
 
 MooseX::MultiMethods - Multi Method Dispatch based on Moose type constraints
 
 =head1 VERSION
 
-version 0.03
+version 0.04
 
 =head1 SYNOPSIS
 
@@ -160,6 +164,8 @@ searched in all the declared multi variants based on the passed parameters and
 the declared type constraints. If a variant has been found, it will be invoked.
 If no variant could be found, an exception will be thrown.
 
+
+
 =head1 AUTHOR
 
   Florian Ragwitz <rafl@debian.org>
@@ -169,5 +175,8 @@ If no variant could be found, an exception will be thrown.
 This software is copyright (c) 2009 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
-the same terms as perl itself.
+the same terms as the Perl 5 programming language system itself.
+
+=cut 
+
 
