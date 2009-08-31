@@ -18,4 +18,4 @@ requires:
   Sub::Install: 0
   aliased: 0
   namespace::autoclean: 0
-version: 0.06
+version: 0.07
