@@ -1,5 +1,5 @@
 package MooseX::MultiMethods::Meta::Method;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 
 use Moose;
@@ -59,7 +59,7 @@ MooseX::MultiMethods::Meta::Method
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 AUTHOR
 

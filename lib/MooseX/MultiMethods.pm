@@ -1,5 +1,5 @@
 package MooseX::MultiMethods;
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 # ABSTRACT: Multi Method Dispatch based on Moose type constraints
 
@@ -105,7 +105,7 @@ method parse {
         unless $meta_method->isa(MetaMethod);
 
     $self->shadow(sub {
-        my $variant = $proto_variant->clone(actual_body => $_[0]);
+        my $variant = $proto_variant->reify(actual_body => $_[0]);
         $meta_method->add_variant($variant->type_constraint => $variant);
     });
 }
@@ -122,7 +122,7 @@ MooseX::MultiMethods - Multi Method Dispatch based on Moose type constraints
 
 =head1 VERSION
 
-version 0.05
+version 0.06
 
 =head1 SYNOPSIS
 
