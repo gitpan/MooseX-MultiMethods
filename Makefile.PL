@@ -9,7 +9,7 @@ WriteMakefile(
   NAME      => 'MooseX::MultiMethods',
   AUTHOR    => 'Florian\ Ragwitz\ \<rafl\@debian\.org\>',
   ABSTRACT  => 'Multi\ Method\ Dispatch\ based\ on\ Moose\ type\ constraints',
-  VERSION   => '0.07',
+  VERSION   => '0.08',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {
@@ -20,7 +20,9 @@ WriteMakefile(
     "Sub::Install" => '0',
     "Devel::PartialDump" => '0',
     "Devel::Declare" => '0.004000',
-    "MooseX::Types::VariantTable" => '0.02',
+    "MooseX::Types::VariantTable" => '0.03',
     "Moose" => '0',
   },
+  test => {TESTS => 't/*.t'}
 );
+

@@ -1,7 +1,9 @@
 package MooseX::MultiMethods::Meta::Method;
-our $VERSION = '0.07';
+our $VERSION = '0.08';
 
 
+
+use Carp;
 use Moose;
 use MooseX::Method::Signatures;
 use MooseX::Types::Moose qw/CodeRef/;
@@ -15,7 +17,18 @@ extends 'Moose::Object', 'Moose::Meta::Method';
 has _variant_table => (
     is      => 'ro',
     isa     => VariantTable,
-    default => sub { VariantTable->new },
+    default => sub {
+        VariantTable->new(
+            ambigious_match_callback => sub {
+                my ($self, $value, @matches) = @_;
+                local $Carp::CarpLevel = 2;
+                croak sprintf 'Ambiguous match for multi method %s: %s with value %s',
+                    $matches[0]->{value}->name,
+                    join(q{, }, map { $_->{value}->signature } @matches),
+                    dump($value);
+            },
+        );
+    },
     handles => [qw/add_variant/],
 );
 
@@ -33,17 +46,13 @@ method initialize_body {
     return sub {
         my ($args) = \@_;
 
-        if (my ($result, $type) = $variant_table->find_variant($args)) {
-            my $method = $result->body;
-            goto $method;
-        }
+        my $result = $variant_table->find_variant($args)
+            || $self->associated_metaclass->find_next_method_by_name($name);
 
-        if (my $super = $self->associated_metaclass->find_next_method_by_name($name)) {
-            my $method = $super->body;
-            goto $method;
-        }
+        confess "no variant of method '${name}' found for ", dump($args)
+            unless $result;
 
-        confess "no variant of method '${name}' found for ", dump($args);
+        goto $result->body;
     };
 }
 
@@ -59,7 +68,7 @@ MooseX::MultiMethods::Meta::Method
 
 =head1 VERSION
 
-version 0.07
+version 0.08
 
 =head1 AUTHOR
 
