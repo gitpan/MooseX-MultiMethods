@@ -12,10 +12,10 @@ requires:
   Devel::Declare: 0.004000
   Devel::PartialDump: 0
   Moose: 0
-  MooseX::Method::Signatures: 0.24
+  MooseX::Method::Signatures: 0.29
   MooseX::Types::Moose: 0
   MooseX::Types::VariantTable: 0.03
   Sub::Install: 0
   aliased: 0
   namespace::autoclean: 0
-version: 0.08
+version: 0.09

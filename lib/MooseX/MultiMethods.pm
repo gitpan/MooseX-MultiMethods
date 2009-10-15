@@ -1,5 +1,5 @@
 package MooseX::MultiMethods;
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
 
 # ABSTRACT: Multi Method Dispatch based on Moose type constraints
@@ -123,7 +123,7 @@ MooseX::MultiMethods - Multi Method Dispatch based on Moose type constraints
 
 =head1 VERSION
 
-version 0.08
+version 0.09
 
 =head1 SYNOPSIS
 
@@ -134,7 +134,7 @@ version 0.08
     package Spock;    use Moose;
 
     package Game;
-our $VERSION = '0.08';
+our $VERSION = '0.09';
 
     use Moose;
     use MooseX::MultiMethods;
