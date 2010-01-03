@@ -1,7 +1,5 @@
 package MooseX::MultiMethods;
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 # ABSTRACT: Multi Method Dispatch based on Moose type constraints
 
 use Moose;
@@ -114,7 +112,6 @@ method parse {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -123,7 +120,7 @@ MooseX::MultiMethods - Multi Method Dispatch based on Moose type constraints
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 SYNOPSIS
 
@@ -134,8 +131,6 @@ version 0.09
     package Spock;    use Moose;
 
     package Game;
-our $VERSION = '0.09';
-
     use Moose;
     use MooseX::MultiMethods;
 
@@ -167,19 +162,16 @@ searched in all the declared multi variants based on the passed parameters and
 the declared type constraints. If a variant has been found, it will be invoked.
 If no variant could be found, an exception will be thrown.
 
-
-
 =head1 AUTHOR
 
   Florian Ragwitz <rafl@debian.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Florian Ragwitz.
+This software is copyright (c) 2010 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

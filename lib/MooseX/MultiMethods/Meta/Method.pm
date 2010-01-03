@@ -1,7 +1,5 @@
 package MooseX::MultiMethods::Meta::Method;
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 
 use Carp;
 use Moose;
@@ -47,7 +45,7 @@ method initialize_body {
         my ($args) = \@_;
 
         my $result = $variant_table->find_variant($args)
-            || $self->associated_metaclass->find_next_method_by_name($name);
+            || Class::MOP::class_of($args->[0])->find_next_method_by_name($name);
 
         confess "no variant of method '${name}' found for ", dump($args)
             unless $result;
@@ -59,7 +57,6 @@ method initialize_body {
 1;
 
 __END__
-
 =pod
 
 =head1 NAME
@@ -68,7 +65,7 @@ MooseX::MultiMethods::Meta::Method
 
 =head1 VERSION
 
-version 0.09
+version 0.10
 
 =head1 AUTHOR
 
@@ -76,11 +73,10 @@ version 0.09
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2009 by Florian Ragwitz.
+This software is copyright (c) 2010 by Florian Ragwitz.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
 
-=cut 
-
+=cut
 

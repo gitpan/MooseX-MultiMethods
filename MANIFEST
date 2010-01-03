@@ -17,3 +17,4 @@ t/lib/MXD.pm
 t/mxd.t
 t/release-pod-coverage.t
 t/release-pod-syntax.t
+t/role.t

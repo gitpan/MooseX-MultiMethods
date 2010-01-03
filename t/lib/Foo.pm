@@ -1,7 +1,5 @@
 package Foo;
-our $VERSION = '0.09';
-
-
+our $VERSION = '0.10';
 
 use Moose;
 use MooseX::MultiMethods;
